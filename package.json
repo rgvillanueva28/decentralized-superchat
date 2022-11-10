@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "flowbite": "^1.5.3",
-    "flowbite-react": "^0.3.4",
+    "@next/font": "^13.0.2",
+    "@thirdweb-dev/react": "^3.5.1",
+    "@thirdweb-dev/sdk": "^3.5.1",
+    "ethers": "^5.7.2",
     "next": "13.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"

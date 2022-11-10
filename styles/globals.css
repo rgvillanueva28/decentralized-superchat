@@ -18,3 +18,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.bg-gradient {
+  background: rgb(88, 28, 135);
+  background: linear-gradient(
+    45deg,
+    rgba(88, 28, 135, 1) 0%,
+    rgba(233, 213, 255, 1) 50%,
+    rgba(168, 85, 247, 1) 100%
+  );
+}
