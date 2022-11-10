@@ -1,6 +1,11 @@
 import React from "react";
 
-export default function ChatMessage({ isUserMessage, children, ...props }) {
+export default function ChatMessage({
+  isUserMessage,
+  senderAddress,
+  children,
+  ...props
+}) {
   return (
     <div
       {...props}
@@ -11,7 +16,7 @@ export default function ChatMessage({ isUserMessage, children, ...props }) {
           : "bg-purple-50 mr-auto")
       }
     >
-      <p className="font-semibold">0x28a...1a3 </p>
+      <p className="font-semibold">{senderAddress}</p>
       {children}
     </div>
   );
