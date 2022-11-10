@@ -5,13 +5,17 @@ import {
   useContractRead,
   useContractWrite,
   useAddress,
+  useNetworkMismatch,
 } from "@thirdweb-dev/react";
 import { contractAddress, abi } from "../../constants";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Chat() {
+  const router = useRouter();
   const address = useAddress();
+  const isMismatched = useNetworkMismatch();
   const disconnect = useDisconnect({ reconnectPrevious: false });
   const { contract } = useContract(contractAddress, abi);
   const { data: messages } = useContractRead(contract, "getMessages");
@@ -50,6 +54,12 @@ export default function Chat() {
     });
     getLastTwentyMessages();
   }, []);
+
+  useEffect(() => {
+    if (!address || isMismatched) {
+      router.push("/");
+    }
+  }, [address, isMismatched]);
 
   useEffect(() => {
     getLastTwentyMessages();

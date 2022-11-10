@@ -7,6 +7,7 @@ import {
   useDisconnect,
 } from "@thirdweb-dev/react";
 import Head from "next/head";
+import Link from "next/link";
 import Button from "../components/Button";
 
 export default function Home() {
@@ -18,9 +19,9 @@ export default function Home() {
 
   return (
     <>
-    <Head>
-      <title>Superchat Dapp</title>
-    </Head>
+      <Head>
+        <title>Superchat Dapp</title>
+      </Head>
       <div className="container flex flex-1 mx-auto min-h-screen ">
         <div className="flex flex-col items-center justify-center mx-auto min-h-screen">
           <h1 className="text-6xl mb-5 text-center ">
@@ -60,6 +61,12 @@ export default function Home() {
                 Switch to Goerli Testnet
               </Button>
             </>
+          )}
+
+          {address && !isMismatched && (
+            <Link href="/chat">
+              <Button>Proceed to Superchat Dapp</Button>
+            </Link>
           )}
         </div>
       </div>
